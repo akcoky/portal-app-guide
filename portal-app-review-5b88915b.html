@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于世界杯门户 · 面向球迷的信息索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f3f9fc;
+      color: #1f2e3b;
+      line-height: 1.7;
+      padding: 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 880px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 2.5rem 2.5rem 1.5rem 1.5rem;
+      box-shadow: 0 12px 28px rgba(0, 40, 50, 0.06), 0 4px 12px rgba(0, 60, 70, 0.04);
+      padding: 2.2rem 2rem 2.8rem;
+      transition: all 0.2s ease;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0.8rem; }
+      .page { padding: 1.8rem 1.2rem 2.2rem; border-radius: 2rem 2rem 1rem 1rem; }
+    }
+
+    /* 蓝绿点缀 */
+    .accent-badge {
+      display: inline-block;
+      background: #d6f0eb;
+      color: #096a5e;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+      padding: 0.2rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0d2b33;
+      margin: 0.4rem 0 1rem;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 500px) {
+      h1 { font-size: 1.9rem; }
+    }
+
+    .intro-sentence {
+      font-size: 1.1rem;
+      background: #e9f4f2;
+      padding: 0.9rem 1.4rem;
+      border-radius: 36px;
+      display: inline-block;
+      margin-bottom: 1.8rem;
+      color: #13554a;
+      font-weight: 450;
+      box-shadow: 0 1px 4px rgba(60, 130, 120, 0.08);
+    }
+
+    .hero-slim {
+      margin: 0.2rem 0 1.6rem;
+    }
+
+    .hero-slim p {
+      font-size: 1.05rem;
+      max-width: 70ch;
+      color: #23424e;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0 2.2rem;
+    }
+
+    .card {
+      background: #f6fcfb;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.2rem 1.4rem;
+      border: 1px solid #d6e9e5;
+      transition: box-shadow 0.15s, transform 0.1s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 14px rgba(0, 70, 70, 0.06);
+      transform: translateY(-2px);
+      border-color: #b1d5ce;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0a453d;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card h3::before {
+      content: "⚽";
+      font-size: 1.2rem;
+      margin-right: 0.2rem;
+      opacity: 0.7;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #30535e;
+    }
+
+    .card .mini-tag {
+      display: inline-block;
+      background: #cde3de;
+      padding: 0.1rem 0.7rem;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #0a5347;
+      margin-top: 0.6rem;
+    }
+
+    .highlight-link-wrap {
+      background: #eef6f4;
+      padding: 1.2rem 1.6rem;
+      border-radius: 48px;
+      margin: 1.6rem 0 1.8rem;
+      border-left: 4px solid #2d897b;
+      font-size: 1.05rem;
+    }
+
+    .highlight-link-wrap a {
+      color: #07594b;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #7bbfb3;
+      transition: border-color 0.2s, background 0.15s;
+      padding: 0.05rem 0.1rem;
+    }
+
+    .highlight-link-wrap a:hover {
+      border-bottom-color: #07594b;
+      background: #d3ece6;
+      border-radius: 4px;
+    }
+
+    .details-section {
+      margin: 1.8rem 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .detail-item {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      background: #fafffe;
+      padding: 0.8rem 1.2rem;
+      border-radius: 28px;
+      border: 1px solid #e2f0ec;
+    }
+
+    .detail-item span {
+      background: #d8efea;
+      border-radius: 30px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #085a4d;
+      white-space: nowrap;
+    }
+
+    .detail-item p {
+      font-size: 0.95rem;
+      color: #1d414b;
+    }
+
+    .closing-note {
+      margin-top: 2.5rem;
+      border-top: 1px solid #d2e5e0;
+      padding-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #2b505a;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .closing-note small {
+      font-size: 0.8rem;
+      color: #53737e;
+    }
+
+    .faq-mini {
+      background: #f2f9f7;
+      border-radius: 28px;
+      padding: 0.8rem 1.4rem 1rem;
+      margin: 1.6rem 0 1rem;
+    }
+
+    .faq-mini p {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-mini strong {
+      color: #07594b;
+    }
+
+    @media (max-width: 480px) {
+      .grid-cards { grid-template-columns: 1fr; }
+      .detail-item { flex-wrap: wrap; }
+      .highlight-link-wrap { padding: 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 开场短句 -->
+  <div class="accent-badge">⚡ 信息索引 · 2025</div>
+  <h1>关于这个世界杯站点</h1>
+  <div class="intro-sentence">一次整理，一份可靠的起点。</div>
+
+  <div class="hero-slim">
+    <p>如果你在寻找一站式的世界杯相关内容汇总，portal-app-worldcup.com 是一个值得了解的索引页面。它并非官方组织，而是围绕赛事信息、球队动态、历史记录等主题，提供经过筛选的链接与简介。下面的内容可以帮助你快速理解这个站点覆盖了哪些方面，以及它的基本可信度。</p>
+  </div>
+
+  <!-- 特点卡片（网格） -->
+  <div class="grid-cards">
+    <div class="card">
+      <h3>赛事速览</h3>
+      <p>收录历届世界杯的基本赛果、举办国、冠军队伍，适合赛前回顾或查找经典对阵。</p>
+      <span class="mini-tag">历史</span>
+    </div>
+    <div class="card">
+      <h3>球队档案</h3>
+      <p>提供主要参赛队伍的简史、现役阵容概览与晋级之路，信息源经交叉比对。</p>
+      <span class="mini-tag">国家队</span>
+    </div>
+    <div class="card">
+      <h3>热门看点</h3>
+      <p>汇总近期预选赛、抽签分组、球星动态，每篇都附有参考链接，方便查证。</p>
+      <span class="mini-tag">新闻</span>
+    </div>
+    <div class="card">
+      <h3>规则与记录</h3>
+      <p>解释比赛规则演变、经典纪录、金靴奖得主等，适合新人或深度爱好者。</p>
+      <span class="mini-tag">百科</span>
+    </div>
+  </div>
+
+  <!-- 链接自然嵌入句子，可见文本严格等于「世界杯」 -->
+  <div class="highlight-link-wrap">
+    <p>如果你想直接从首页开始浏览，可以前往 <a href="https://portal-app-worldcup.com">世界杯</a> 页面，那里汇集了赛事时间线、球队数据和近期报道。</p>
+  </div>
+
+  <!-- 承接段落 + 可信说明 -->
+  <div class="details-section">
+    <div class="detail-item">
+      <span>🧭 定位</span>
+      <p>portal-app-worldcup.com 是一个非官方信息整合站，内容编辑主要依据公开可靠来源（如 FIFA 官网、主流体育媒体），每条信息都尽量标注出处或更新时间。</p>
+    </div>
+    <div class="detail-item">
+      <span>🔍 可信度</span>
+      <p>站点没有商业广告或诱导注册，页面结构清晰，不收集用户隐私。团队在页脚公开了联系邮箱与数据修正渠道，对错误反馈处理较快。</p>
+    </div>
+    <div class="detail-item">
+      <span>📘 适用场景</span>
+      <p>适合赛前快速查阅对手资料、赛后回顾比赛记录、或者简单了解世界杯冷知识。不用于竞猜、博彩或任何违规用途。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要（温和） -->
+  <div class="faq-mini">
+    <p><strong>常见疑问：</strong> 内容更新频率？ —— 平日每两周更新一次，大赛期间（预选赛、正赛）每周更新 2~3 次。  是否支持 RSS？ —— 页面提供 Atom 订阅，适合用阅读器跟进。</p>
+  </div>
+
+  <!-- 温和结尾 -->
+  <div class="closing-note">
+    <span>希望这份整理对你有用。如果你对某支球队或某届赛事感兴趣，不妨从 <a href="https://portal-app-worldcup.com" style="color: #07594b; text-decoration: none; border-bottom: 1px dotted #4f9688;">世界杯</a> 开始探索。</span>
+    <small>非官方 · 仅供参考 · 2025</small>
+  </div>
+
+</div>
+</body>
+</html>
