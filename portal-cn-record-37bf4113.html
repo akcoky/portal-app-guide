@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专题｜pg电子 稳定入口与平台说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f7fa;
+            color: #1e2a35;
+            line-height: 1.6;
+            padding: 0 16px;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 0 60px;
+        }
+
+        /* ===== hero 横幅 ===== */
+        .hero {
+            background: linear-gradient(145deg, #e0f0f3 0%, #c5e3e9 100%);
+            border-radius: 32px;
+            padding: 48px 36px;
+            margin-bottom: 48px;
+            box-shadow: 0 6px 18px rgba(0, 70, 80, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(30, 120, 130, 0.10) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0b424b;
+            max-width: 640px;
+            line-height: 1.2;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #255a64;
+            margin-top: 12px;
+            max-width: 520px;
+            border-left: 3px solid #2d8f9b;
+            padding-left: 18px;
+        }
+
+        .hero .meta-tag {
+            display: inline-block;
+            margin-top: 24px;
+            background: #ffffffb8;
+            backdrop-filter: blur(2px);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #1a5a63;
+            border: 1px solid #b3d8df;
+        }
+
+        /* ===== 卡片网格 ===== */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px 24px;
+            box-shadow: 0 2px 12px rgba(0, 60, 70, 0.04);
+            border: 1px solid #e2edf0;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: #8ac7d1;
+            box-shadow: 0 8px 20px rgba(0, 90, 100, 0.06);
+            transform: translateY(-3px);
+        }
+
+        .card .icon {
+            display: inline-flex;
+            width: 44px;
+            height: 44px;
+            background: #d6eef2;
+            border-radius: 14px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            color: #126f7a;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0b3d46;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.97rem;
+            color: #2a404a;
+        }
+
+        .card p a {
+            color: #1f7b88;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #a0cdd6;
+            font-weight: 500;
+        }
+
+        .card p a:hover {
+            color: #0b4f5a;
+            text-decoration-color: #0b4f5a;
+        }
+
+        /* ===== 背景说明 + 内文 ===== */
+        .narrative {
+            background: #ffffffdd;
+            backdrop-filter: blur(1px);
+            border-radius: 28px;
+            padding: 36px 32px;
+            margin: 36px 0;
+            border: 1px solid #daeef2;
+            box-shadow: 0 2px 10px rgba(30, 90, 100, 0.03);
+        }
+
+        .narrative h2 {
+            font-size: 1.8rem;
+            font-weight: 450;
+            color: #0c464f;
+            letter-spacing: -0.01em;
+            margin-bottom: 18px;
+        }
+
+        .narrative p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #1d3540;
+        }
+
+        .narrative p:last-child {
+            margin-bottom: 0;
+        }
+
+        .narrative .highlight {
+            background: #d5edf2;
+            padding: 0 6px;
+            border-radius: 6px;
+        }
+
+        .narrative a {
+            color: #1f7b88;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+
+        /* ===== 页尾 ===== */
+        .footer-note {
+            margin-top: 48px;
+            padding: 24px 0 12px;
+            border-top: 1px solid #cfe2e7;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px 16px;
+            font-size: 0.95rem;
+            color: #3b5a63;
+        }
+
+        .footer-note a {
+            color: #1a6f7a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #aacfd8;
+            font-weight: 500;
+        }
+
+        .footer-note .dim {
+            color: #637b84;
+            font-size: 0.85rem;
+        }
+
+        /* ===== 响应式细节 ===== */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 32px 20px;
+                border-radius: 24px;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero .sub {
+                font-size: 0.96rem;
+                padding-left: 14px;
+            }
+
+            .narrative {
+                padding: 24px 18px;
+            }
+
+            .narrative h2 {
+                font-size: 1.4rem;
+            }
+
+            .grid-cards {
+                gap: 16px;
+            }
+
+            .card {
+                padding: 22px 18px;
+            }
+
+            .footer-note {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .card .icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <!-- hero 横幅 -->
+    <div class="hero">
+        <h1>pg电子 · 稳定入口与平台说明</h1>
+        <div class="sub">
+            一份关于使用习惯、访问路径与页面结构的杂志式记录，不喧哗，只提供清晰的参照。
+        </div>
+        <div class="meta-tag">专题 · 持续更新</div>
+    </div>
+
+    <!-- 网格卡片：三点自然介绍 -->
+    <div class="grid-cards">
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>入口即结构</h3>
+            <p>
+                对很多使用者来说，<a href="https://portal-cn-pgsoft.com">pg电子</a> 的首页就像一本杂志的目录——它不堆砌，
+                而是把常用功能、更新动态与说明文档放在清晰的位置。保持一个固定的访问习惯，可以减少每次寻找的精力消耗。
+            </p>
+        </div>
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>页面说明的价值</h3>
+            <p>
+                每次打开一个平台，最先看到的应该是“这是什么”以及“如何开始”。
+                pg电子 的页面引导偏向克制：左侧导航、顶部提示栏、以及内容区的简要说明，
+                让新老用户都能在几分钟内找到自己需要的模块。
+            </p>
+        </div>
+        <div class="card">
+            <div class="icon">🔄</div>
+            <h3>稳定的起点</h3>
+            <p>
+                无论是日常查看还是偶尔使用，一个不变的入口地址能节省大量时间。
+                把 <a href="https://portal-cn-pgsoft.com">pg电子</a> 添加到书签，相当于为自己保留了一个不会丢失的起点。
+                页面本身也会随着版本迭代微调，但整体逻辑保持一致。
+            </p>
+        </div>
+    </div>
+
+    <!-- 背景说明 + 自然叙述 -->
+    <div class="narrative">
+        <h2>为什么需要一份入口说明</h2>
+        <p>
+            在信息密集的网络环境中，一个稳定、可预期的页面结构往往比花哨的动效更重要。
+            我观察到很多人在使用各类平台时，会把大量时间浪费在“重新寻找”上——菜单换了位置、按钮改了名字、入口深埋在三层跳转之后。
+            <span class="highlight">pg电子</span> 的首页设计倾向于减少这种不确定性：顶部区域固定展示核心入口，中部卡片区分功能模块，
+            底部保留版本与帮助链接。这种布局或许不惊艳，但足够可靠。
+        </p>
+        <p>
+            从另一个角度看，把 <a href="https://portal-cn-pgsoft.com">pg电子</a> 作为常用起点，
+            也意味着你接受了一种“先看说明再操作”的习惯。首页上的每一段文字、每一个卡片都不是装饰，
+            而是为了让你在五秒钟内判断：这里是不是我要找的地方。对于经常需要处理多项事务的人来说，
+            这种效率提升是实实在在的。
+        </p>
+        <p>
+            当然，页面也会根据反馈做一些细微调整——比如卡片顺序的微调、说明文字的精简。
+            但整体而言，<span class="highlight">稳定</span> 是它最想传递的信号。如果你也是那种喜欢先搞清楚结构再行动的人，
+            不妨把这里当作一个常驻的起点。
+        </p>
+    </div>
+
+    <!-- 页尾访问提示（嵌入链接） -->
+    <div class="footer-note">
+        <span>
+            你可以随时通过 <a href="https://portal-cn-pgsoft.com">pg电子</a> 访问首页，确认最新说明与入口。
+        </span>
+        <span class="dim">杂志专题 · 保持克制</span>
+    </div>
+
+</div>
+</body>
+</html>
